@@ -1,0 +1,45 @@
+KEHITOHKTUM6:1.2 b711022$ docker container prune
+WARNING! This will remove all stopped containers.
+Are you sure you want to continue? [y/N] y
+Deleted Containers:
+0f37c894815e608aeaed7f527e46f6515f945fb79ac9b2487bfe69dbbefa6deb
+aa45a07f8d84cffcfb24d1f2bf910a006f0abcecbccdca10281a35fc8a8b3ac1
+
+Total reclaimed space: 2.186kB
+KEHITOHKTUM6:1.2 b711022$ docker image prune
+WARNING! This will remove all dangling images.
+Are you sure you want to continue? [y/N] y
+Total reclaimed space: 0B
+KEHITOHKTUM6:1.2 b711022$ docker ps -as
+CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS         PORTS     NAMES                     SIZE
+e1ddf06b3d9c   nginx     "/docker-entrypoint.…"   8 minutes ago   Up 8 minutes   80/tcp    affectionate_mirzakhani   1.09kB (virtual 133MB)
+KEHITOHKTUM6:1.2 b711022$ docker container stop e1
+e1
+KEHITOHKTUM6:1.2 b711022$ docker container prune
+WARNING! This will remove all stopped containers.
+Are you sure you want to continue? [y/N] y
+Deleted Containers:
+e1ddf06b3d9c4d28468a67572498951652d223aa52031f65b90c15aa171aa29a
+
+Total reclaimed space: 1.093kB
+KEHITOHKTUM6:1.2 b711022$ docker image prune
+WARNING! This will remove all dangling images.
+Are you sure you want to continue? [y/N] y
+Total reclaimed space: 0B
+KEHITOHKTUM6:1.2 b711022$ docker ps -as
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES     SIZE
+KEHITOHKTUM6:1.2 b711022$ docker images
+REPOSITORY   TAG       IMAGE ID       CREATED      SIZE
+nginx        latest    d1a364dc548d   4 days ago   133MB
+KEHITOHKTUM6:1.2 b711022$ docker image rm nginx
+Untagged: nginx:latest
+Untagged: nginx@sha256:6d75c99af15565a301e48297fa2d121e15d80ad526f8369c526324f0f7ccb750
+Deleted: sha256:d1a364dc548d5357f0da3268c888e1971bbdb957ee3f028fe7194f1d61c6fdee
+Deleted: sha256:fcc8faba78fe8a1f75025781c8fa1841079b75b54fce8408d039f73a48b7a81b
+Deleted: sha256:a476b265974ace4c857e3d88b358e848f126297a8249840c72d5f5ea1954a4bf
+Deleted: sha256:56722ee1ee7e73a5c6f96ea2959fa442fb4db9f044399bcd939bb0a6eb7919dc
+Deleted: sha256:c657df997c75f6c1a9c5cc683e8e34c6f29e5b4c1dee60b632d3477fd5fdd644
+Deleted: sha256:e9e1f772d2a8dbbeb6a4a4dcb4f0d07ff1c432bf94fac7a2db2216837bf9ec5b
+Deleted: sha256:02c055ef67f5904019f43a41ea5f099996d8e7633749b6e606c400526b2c4b33
+KEHITOHKTUM6:1.2 b711022$ docker images
+REPOSITORY   TAG       IMAGE ID   CREATED   SIZE
