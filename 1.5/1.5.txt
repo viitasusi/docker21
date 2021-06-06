@@ -1,0 +1,22 @@
+Toiminnallisuus on sama käyttöjärjestelmästä (Ubuntu/Alpine) riippumatta.
+
+KEHITOHKTUM6:docker21 b711022$ docker run -d -it  devopsdockeruh/simple-web-service:alpine
+3bb7db4686a684c0cd6944dfa0039867c25addabc248e88f6132c43556fb239c
+KEHITOHKTUM6:docker21 b711022$ docker exec -it devopsdockeruh/simple-web-service:alpine sh
+Error: No such container: devopsdockeruh/simple-web-service:alpine
+KEHITOHKTUM6:docker21 b711022$ docker exec -it devopsdockeruh/simple-web-service sh
+Error: No such container: devopsdockeruh/simple-web-service
+KEHITOHKTUM6:docker21 b711022$ docker container ls
+CONTAINER ID   IMAGE                                      COMMAND                 CREATED          STATUS          PORTS     NAMES
+3bb7db4686a6   devopsdockeruh/simple-web-service:alpine   "/usr/src/app/server"   38 seconds ago   Up 37 seconds             sad_pasteur
+KEHITOHKTUM6:docker21 b711022$ docker exec -it sad_pasteur sh
+/usr/src/app # ls
+server    text.log
+/usr/src/app # nano text.log
+sh: nano: not found
+/usr/src/app # tail -f ./text.log
+2021-06-06 12:32:52 +0000 UTC
+2021-06-06 12:32:54 +0000 UTC
+2021-06-06 12:32:56 +0000 UTC
+2021-06-06 12:32:58 +0000 UTC
+Secret message is: 'You can find the source code here: https://github.com/docker-hy'
